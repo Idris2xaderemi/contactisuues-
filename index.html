@@ -237,8 +237,12 @@
 
       function displayInLocal() {
         let contactToSave = localStorage.getItem("contactStringKey");
-        let convProd = JSON.parse(contactToSave);
-        contactArray = convProd;
+        if (contactToSave) {
+          let convProd = JSON.parse(contactToSave);
+          contactArray = convProd || [];
+        } else {
+          contactArray = [];
+        }
         displayCard();
       }
 
@@ -265,7 +269,6 @@
           contactEmail.value = "";
           contactNumber.value = "";
           contactImgLink.value = "";
-
           saveToLocal();
           displayCard();
         }
