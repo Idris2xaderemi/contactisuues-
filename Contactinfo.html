@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body onload="displayInLocal()" class="containe">
+    <style>
+      .card {
+        width: 190px;
+        height: 254px;
+        border-radius: 20px;
+        padding: 5px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+        box-shadow: rgba(79, 70, 229, 0.25) 0 18px 35px -8px;
+        background-image: linear-gradient(
+          135deg,
+          #020617,
+          #0f172a 50%,
+          #1e293b
+        );
+        box-shadow: rgba(2, 6, 23, 0.6) 0 15px 40px -12px;
+        color: #f8fafc;
+      }
+
+      .card span {
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+      }
+
+      
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  font-family: inherit;
+  gap: 10px;
+  padding-inline: 2em;
+  padding-bottom: 0.4em;
+  background-color: #171717;
+  /* background-color: #0a192f; */
+  border-radius: 20px;
+}
+
+.form-heading {
+  text-align: center;
+  margin: 1em;
+  color:teal;
+  font-size: 2em;
+  background-color: transparent;
+  align-self: center;
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  border-radius: 10px;
+  padding: 0.6em;
+  border: none;
+  outline: none;
+  color: black;
+  background-color:whitesmoke;
+  box-shadow: inset 2px 5px 40px #a3b1c6;
+  margin-bottom: 0.7em;
+}
+
+.form-field input {
+  color:teal;
+  font-weight: 800;
+}
+
+.input-field {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #ccd6f6;
+  padding-inline: 1em;
+}
+
+.sendMessage-btn {
+  cursor: pointer;
+  margin-bottom: 3em;
+  padding: 1em;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: teal;
+  font-weight: bold;
+  outline: 1px solid teal;
+  transition: all ease-in-out 0.3s;
+}
+
+.sendMessage-btn:hover {
+  transition: all ease-in-out 0.3s;
+  background-color: teal;
+  color: #000;
+  cursor: pointer;
+  box-shadow: inset 2px 5px 10px white;
+}
+
+.form-card1 {
+  background-image: linear-gradient(163deg, teal 0%, teal 100%);
+  border-radius: 22px;
+  transition: all 0.3s;
+  width: fit-content;
+  justify-self: center;
+}
+
+.form-card1:hover {
+  box-shadow: 10px rgba(100, 255, 218, 0.3);
+}
+
+.form-card2 {
+  border-radius: 0;
+  transition: all 0.3s;
+}
+
+.form-card2:hover {
+  transform: scale(0.97);
+  border-radius: 20px;
+}
+
+
+.containe{
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 25% 25%, #a3b1c6 15%, transparent 15%),
+    radial-gradient(circle at 75% 75%, #a3b1c6 15%, transparent 15%);
+  background-size: 10px 10px;
+  background-color: #e0e7ed;
+}
+   @media only screen and (max-width:436px)  {
+    .imageclear img {
+      display: none;
+      margin-trim:all;
+    }
+    
+   }
+
+   @media (min-width:725px) {
+    .form {
+      width: 750px;
+      justify-content: center;
+      justify-self: center;
+    }
+   }
+
+
+    </style>
+
+    <div class="form-card1 m-5">
+  <div class="form-card2">
+    <form class="form px-5">
+      <p class="form-heading fw-bold">Create Contact Card</p>
+
+      <div class="form-field">
+        <input placeholder="Contact Name" class="input-field" type="text"  id="contactName" />
+      </div>
+
+      <div class="form-field">
+        <input
+          placeholder="Contact Email"
+          class="input-field"
+          type="email"
+          id="contactEmail"
+        />
+      </div>
+
+      <div class="form-field">
+        <input
+        
+          placeholder="Contact Number"
+          class="input-field"
+          type="number"
+          id="contactNumber"
+        />
+      </div>
+
+      <div class="form-field">
+        <input
+        
+          placeholder="Contact Image Link"
+          class="input-field"
+          type="text" 
+          id="contactImgLink"
+        ></input>
+      </div>
+
+      <button class="sendMessage-btn submit"  onclick="submitContact()">submitContact</button>
+    </form>
+  </div>
+</div>
+
+
+<!-- <div class="container">
+  <form class="form" action="">
+    <p class="title">Login Form</p>
+    <input placeholder="Username" class="username input" type="text" />
+    <input placeholder="Password" class="password input" type="password" />
+    <button class="btn" type="submit">Login</button>
+  </form>
+</div> -->
+
+    <!-- <section class="d-flex flex-wrap gap-3 flex-column m-5 form">
+      <h1 class="title text-center">Create Contact Card</h1>
+      <input type="text" id="contactName" placeholder="contact name" />
+      <input type="email" id="contactEmail" placeholder="contact email" />
+      <input type="number" id="contactNumber" placeholder="contact number" />
+      <input type="text" id="contactImgLink" placeholder="contact image link" />
+      <button onclick="submitContact()" class="submit">SUBMIT</button>
+    </section> -->
+
+    <section
+      class="d-flex justify-content-center allign-items-center flex-wrap gap-5"
+      id="contactCard"
+    ></section>
+
+    <script>
+      let contactArray = [];
+
+      function saveToLocal() {
+        let contactString = JSON.stringify(contactArray);
+        localStorage.setItem("contactStringKey", contactString);
+      }
+
+      function displayInLocal() {
+        let contactToSave = localStorage.getItem("contactStringKey");
+        let convProd = JSON.parse(contactToSave);
+        contactArray = convProd;
+        displayCard();
+      }
+
+      function submitContact() {
+        if (
+          contactName.value == "" ||
+          contactEmail.value == "" ||
+          contactNumber.value == "" ||
+          contactImgLink.value == ""
+        ) {
+          alert("Please fill all Inputs");
+        } else {
+          let contactObj = {
+            contactName: contactName.value,
+            contactEmail: contactEmail.value,
+            contactNumber: contactNumber.value,
+            contactImgLink: contactImgLink.value,
+          };
+
+          contactArray.unshift(contactObj);
+          console.log(contactArray);
+
+          contactName.value = "";
+          contactEmail.value = "";
+          contactNumber.value = "";
+          contactImgLink.value = "";
+
+          saveToLocal();
+          displayCard();
+        }
+      }
+
+      function displayCard() {
+        contactCard.innerHTML = "";
+
+        for (let i = 0; i < contactArray.length; i++) {
+          contactCard.innerHTML += `<div class="card" style="width: 500px; max-width: 540px;    height: 250px;"> 
+        <div class="row g-0">
+            <div class="col-md-4 imageclear">
+                <img src="${contactArray[i].contactImgLink}" class="img-fluid rounded-circle h-75 mx-3 mt-4" alt="Contact Image" style="border:4px solid white;">
+            </div>
+            <div class="col-md-8 card_content mt-2">
+                <div class="card-body ms-3 flex-wrap card_content">
+                    <div  class="d-flex mb-3 ">
+                        <h5 class="card-title me-3 card_content" style=" color: TEAL;"> NAME:</h5>
+                        <span>${contactArray[i].contactName}</span>
+                    </div>
+                    <div class="d-flex mb-3 flex-wrap" >
+                        <h5 class="card-title me-3" style=" color: TEAL;" > EMAIL:</h5>
+                        <span class="text-break">${contactArray[i].contactEmail}</span>
+                    </div>
+                    <div class="d-flex mb-3 flex-wrap">
+                        <h5 class="card-title me-3" style=" color: TEAL;"> PHONE NO:</h5> <span>${contactArray[i].contactNumber}</span>
+                    </div>
+                    <div>
+                        <button class="me-3 btn btn-info" onclick="editButton(${i})">EDIT</button>
+                        <button class="btn btn-danger" onclick="deleteButton(${i})">DELETE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>`;
+        }
+
+        console.log(contactArray);
+      }
+
+      function deleteButton(index) {
+        contactArray.splice(index, 1);
+        saveToLocal();
+        displayCard();
+      }
+
+      function editButton(index) {
+        let newName = prompt(
+          "Enter the new contact name",
+          contactArray[index].contactName,
+        );
+        let newEmail = prompt(
+          "Enter the new email",
+          contactArray[index].contactEmail,
+        );
+        let newNumber = prompt(
+          "Enter the new number",
+          contactArray[index].contactNumber,
+        );
+        let newImgLink = prompt(
+          "Enter the new image link",
+          contactArray[index].contactImgLink,
+        );
+
+        if (
+          newName == null ||
+          newName == "" ||
+          newEmail == null ||
+          newEmail == "" ||
+          newNumber == null ||
+          newNumber == "" ||
+          newImgLink == null ||
+          newImgLink == ""
+        ) {
+          alert("One or more value was not imputed, please try again");
+          displayCard();
+        } else {
+          contactArray.splice(index, 1, {
+            contactName: newName,
+            contactEmail: newEmail,
+            contactNumber: newNumber,
+            contactImgLink: newImgLink,
+          });
+          saveToLocal();
+          displayCard();
+        }
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
